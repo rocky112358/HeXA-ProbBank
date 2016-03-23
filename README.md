@@ -1,6 +1,6 @@
-# HeXA CTF 2015
+# HeXA ProbBank
 
-http://ctf.hexa.pro 
+http://probank.hexa.pro 
 
 1. Python Django web framework 사용
 
@@ -28,6 +28,6 @@ http://ctf.hexa.pro
 
 ## Copyright
 
-Copyright :copyright: 2015 HeXA.
+Copyright :copyright: 2016 HeXA.
 
 The MIT License (MIT)
