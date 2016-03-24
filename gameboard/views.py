@@ -140,13 +140,13 @@ def auth(request, prob_id=None):
 			messages.success(request, message)
 			return HttpResponseRedirect("/gameboard/")
 
-		breakthru = prob_entry.solver_list.count()
-		breakthru_point = 0
-		if breakthru < 3:
-			breakthru_point += (3 - breakthru)
+#		breakthru = prob_entry.solver_list.count()
+#		breakthru_point = 0
+#		if breakthru < 3:
+#			breakthru_point += (3 - breakthru)
 
 		# Add to SolverList and update solve counter
-		solver = SolverListModel.objects.create(username=username, problem_id=prob_entry.id, breakthru_point=breakthru_point)
+		solver = SolverListModel.objects.create(username=username, problem_id=prob_entry.id)
 		solve_cnt = int(prob_entry.solver_count)+1
 		prob_entry.solver_count = solve_cnt
 		prob_entry.solver_list.add(solver)
@@ -156,7 +156,7 @@ def auth(request, prob_id=None):
 		u = User.objects.get(username=request.user.username)
 		current_user = Account.objects.get(user=u)
 		current_user.score += int(prob_entry.point)
-		current_user.score += int(breakthru_point)
+#		current_user.score += int(breakthru_point)
 
 		# update user last_auth time
 		current_user.last_auth = datetime.datetime.now()

@@ -9,7 +9,7 @@ def get_upload_file_name(instance, filename):
 class SolverListModel(models.Model):
 	username = models.CharField(max_length=30, null=False)
         problem_id = models.PositiveSmallIntegerField(null=False)
-	breakthru_point = models.PositiveSmallIntegerField(default=0, null=False)
+#	breakthru_point = models.PositiveSmallIntegerField(default=0, null=False)
 
 class Categories(models.Model):
         title = models.CharField(max_length=40, null=False)
