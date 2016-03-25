@@ -12,17 +12,17 @@ http://probank.hexa.pro
 
 ## Screenshots
 
-![home](./static/static/assets/hexactf2015_home.PNG)
+![home](./static/assets/hexactf2015_home.PNG)
 
-![tasks](./static/static/assets/hexactf2015_tasks.PNG)
+![tasks](./static/assets/hexactf2015_tasks.PNG)
 
-![ranks](./static/static/assets/hexactf2015_ranks.PNG)
+![ranks](./static/assets/hexactf2015_ranks.PNG)
 
 
 
 ## Admin page screenshot
 
-![admin problem list](./static/static/assets/hexactf2015_admin_problist.PNG)
+![admin problem list](./static/assets/hexactf2015_admin_problist.PNG)
 
 
 
