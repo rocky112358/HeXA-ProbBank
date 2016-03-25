@@ -8,8 +8,7 @@ from account.models import Account
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.conf import settings
-from django.core.servers.basehttp import FileWrapper
-from django.http import StreamingHttpResponse
+from django.http import FileResponse
 import mimetypes
 
 import hashlib
@@ -68,10 +67,9 @@ def download(request, prob_id=None):
 	prob_file = str(prob_entry.problem_file)
 
 	filename = os.path.join(DOWNLOAD_DIR, prob_file)
-	chunk_size = 8192
-	response = StreamingHttpResponse(FileWrapper(open(filename), chunk_size), content_type='application/octet-stream')
-	response['Content-Length'] = os.path.getsize(filename)
-	response['Content-Disposition'] = "attachment; filename=\"%s\"" % os.path.basename(filename)
+        response = FileResponse(open(filename, 'rb'), content_type='application/octet-stream')
+        response['Content-Length'] = os.path.getsize(filename)
+        response['Content-Disposition'] = "attachment; filename=\"%s\"" % os.path.basename(filename)
 	return response
 
 
