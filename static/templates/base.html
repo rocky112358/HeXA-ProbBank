@@ -9,16 +9,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <!-- Site Properities -->
-  <title>HeXA CTF</title>
-  <link rel="stylesheet" type="text/css" href="/static/semantic/dist/semantic.min.css">
+  <title>HeXA ProbBank</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/semantic.min.css">
   <link rel="shortcut icon" href="/static/assets/favicon.png">
 
-  <!-- HeXA CTF 2015 Custom CSS -->
-  <link rel="stylesheet" type="text/css" href="/static/css/hexactf.css">  
+  <!-- HeXA ProbBank Custom CSS -->
+  <link rel="stylesheet" type="text/css" href="/static/css/probbank.css">  
 
   <script src="/static/js/jquery.min.js"></script>
-  <script src="/static/js/hexactf.js"></script>
-  <script src="/static/semantic/dist/semantic.min.js"></script>
+  <script src="/static/js/probbank.js"></script>
+  <script src="/static/js/semantic.min.js"></script>
 
 </head>
 {% load tags %}
@@ -32,10 +32,10 @@
     <a href="/gameboard/scoreboard/" class="{% active request "gameboard/scoreboard/" %} item">Scoreboard</a>
     <div class="right item">
     {% if not user.is_authenticated %}
-      <a href="/account/sign_in" class="ui button">Log in</a>
-      <a href="/account/sign_up" class="ui primary button">Sign Up</a>
+      <a href="/account/sign_in/" class="ui button">Log in</a>
+      <a href="/account/sign_up/" class="ui primary button">Sign Up</a>
     {% else %}
-      <a href="/account/sign_out" class="ui button">Log out</a>
+      <a href="/account/sign_out/" class="ui button">Log out</a>
     {% endif %}
     </div>
   </div>
@@ -48,10 +48,10 @@
   <a href="/gameboard/" class="{% active request "gameboard/" %} item">Tasks</a>
   <a href="/gameboard/scoreboard/" class="{% active request "gameboard/scoreboard/" %} item">Scoreboard</a>
   {% if not user.is_authenticated %}
-    <a href="/account/sign_in" class="item">Log in</a>
-    <a href="/account/sign_up" class="item">Sign Up</a>
+    <a href="/account/sign_in/" class="item">Log in</a>
+    <a href="/account/sign_up/" class="item">Sign Up</a>
   {% else %}
-    <a href="/account/sign_out" class="item">Log out</a>
+    <a href="/account/sign_out/" class="item">Log out</a>
   {% endif %}
  
   {% if user.is_superuser and template == "admin/home.html" %}
@@ -78,10 +78,10 @@
         <a href="/gameboard/scoreboard/" class="{% active request "gameboard/scoreboard/" %} item">Scoreboard</a>
         <div class="right item">
         {% if not user.is_authenticated %}
-          <a href="/account/sign_in" class="ui inverted button">Log in</a>
-          <a href="/account/sign_up" class="ui inverted button">Sign Up</a>
+          <a href="/account/sign_in/" class="ui inverted button">Log in</a>
+          <a href="/account/sign_up/" class="ui inverted button">Sign Up</a>
         {% else %}
-          <a href="/account/sign_out" class="ui inverted button">Log out</a>
+          <a href="/account/sign_out/" class="ui inverted button">Log out</a>
         {% endif %}
         </div>
       </div>

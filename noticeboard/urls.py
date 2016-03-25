@@ -1,6 +1,7 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import url
 
-urlpatterns = patterns('',
-	url(r'^$', 'noticeboard.views.notice_view'),
-)
+from . import views
 
+urlpatterns = [
+    url(r'^$', views.notice_view),
+]

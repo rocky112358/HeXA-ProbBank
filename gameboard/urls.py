@@ -1,11 +1,11 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import url
 
-urlpatterns = patterns('',
-	url(r'^$', 'gameboard.views.index'),
-	url(r'^scoreboard/$', 'gameboard.views.scoreboard'),
-	url(r'^prob_view/(?P<prob_id>\d+)/$', 'gameboard.views.prob_view'),
-	url(r'^auth/(?P<prob_id>\d+)/$', 'gameboard.views.auth'),
-	url(r'^download/(?P<prob_id>\d+)/$', 'gameboard.views.download'),
+from . import views
 
-)
-
+urlpatterns = [
+    url(r'^$', views.index),
+    url(r'^scoreboard/$', views.scoreboard),
+    url(r'^prob_view/(?P<prob_id>\d+)/$', views.prob_view),
+    url(r'^auth/(?P<prob_id>\d+)/$', views.auth),
+    url(r'^download/(?P<prob_id>\d+)/$', views.download),
+]

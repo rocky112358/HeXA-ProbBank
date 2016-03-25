@@ -7,23 +7,22 @@ from noticeboard.models import NoticeEntries
 
 def home(request):
 
-	superuser_flag = False
-	try:
-		username = request.user.username
-		u = User.objects.get(username=request.user.username)
-		superuser_flag = u.is_superuser
-	except:
-		pass
-			
-	if superuser_flag:
-		solver_list = SolverListModel.objects.all()
-		categories = Categories.objects.all()
-		problem_entries = Entries.objects.all().order_by('category', 'point')
-		notice_entries = NoticeEntries.objects.all()
-		log_entries = LogEntries.objects.all().order_by('-id')[:50]
-		template = "admin/home.html"
-	else:  
-		template = "home.html"
+    if request.user.is_superuser:
+        categories = Categories.objects.all()
+        solver_list = SolverListModel.objects.all()
+        log_entries = LogEntries.objects.all().order_by('-id')[:50]
+        notice_entries = NoticeEntries.objects.all()
+        problem_entries = Entries.objects.all().order_by('category', 'point')
+        context = {
+            'solver_list': solver_list,
+            'categories': categories,
+            'problem_entries': problem_entries,
+            'notice_entries': notice_entries,
+            'log_entries': log_entries,
+        }
+        return render(request, "admin/home.html", context)
 
-	return render_to_response(template,locals(),context_instance=RequestContext(request))
+    else:  
+        template = "home.html"
+        return render(request, "home.html")
 
